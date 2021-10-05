@@ -1,5 +1,7 @@
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './styles/App.css';
+import Title from './components/Title';
+import Form from './components/Form';
 
 const titulo = 'Tinto Tareas';
 
@@ -8,22 +10,10 @@ function App() {
     <div className="contenedor-principal">
       <div className="container-fluid">
         {/* F1 - Titulo */}
-        <div className="row">
-          <div className="col-12">
-            <h1 className="text-primary text-center">{titulo}</h1>
-          </div>
-        </div>
+        <Title title={titulo} />
 
         {/* F2 - Formulario */}
-        <div className="row">
-          <div className="col-12">
-            <form className="d-flex">
-              <input type="text" className="form-control" id="inlineFormInputGroupTarea" placeholder="Descripción de la tarea..." />
-
-              <button type="submit" className="btn btn-primary">Agregar</button>
-            </form>
-          </div>
-        </div>
+        <Form />
 
         {/* F3 - Lista de Tareas */}
         <div className="row">
