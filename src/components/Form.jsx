@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 
 function Form() {
   // State
-  const [enable, setEnable] = useState(false); // 1
-  const [task, setTask] = useState(''); // 2
+  const [enable, setEnable] = useState(false);
+  const [task, setTask] = useState('');
 
-  // Handling Events
+  // Handling Input Change Event
   const handleChange = (event) => {
     const newTask = event.target.value;
     setTask(newTask);
@@ -20,6 +20,7 @@ function Form() {
     }
   }, [task]);
 
+  // Handling Form Submit Event
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(task);
