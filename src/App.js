@@ -2,60 +2,22 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './styles/App.css';
 import Title from './components/Title';
 import Form from './components/Form';
+import List from './components/List';
 
-const titulo = 'Tinto Tareas';
+const myTitle = 'Tinto Tareas';
 
 function App() {
   return (
     <div className="contenedor-principal">
       <div className="container-fluid">
         {/* F1 - Titulo */}
-        <Title title={titulo} />
+        <Title title={myTitle} />
 
         {/* F2 - Formulario */}
         <Form />
 
         {/* F3 - Lista de Tareas */}
-        <div className="row">
-          <div className="col-12">
-            <table className="table lista-tareas">
-              <tbody>
-                <tr>
-                  <td>
-                    <input type="checkbox" className="form-check-input" />
-                  </td>
-                  <td>
-                    <h4 className="text-primary mb-0">Tarea</h4>
-                    <span className="text-muted">Completado</span>
-                  </td>
-                  <td className="text-end">
-                    <button className="btn btn-link" title="Eliminar">
-                      <span className="material-icons text-danger">
-                        delete
-                      </span>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="checkbox" className="form-check-input" />
-                  </td>
-                  <td>
-                    <h4 className="text-primary mb-0">Tarea</h4>
-                    <span className="text-muted">Completado</span>
-                  </td>
-                  <td className="text-end">
-                    <button className="btn btn-link" title="Eliminar">
-                      <span className="material-icons text-danger">
-                        delete
-                      </span>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <List />
 
         {/* F4 - Filtros */}
         <div className="row">
