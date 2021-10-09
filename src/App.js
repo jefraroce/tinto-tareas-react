@@ -3,10 +3,36 @@ import './styles/App.css';
 import Title from './components/Title';
 import Form from './components/Form';
 import List from './components/List';
+import Filters from './components/Filters';
+import { useState } from 'react';
 
 const myTitle = 'Tinto Tareas';
 
+let initialTask = [
+  { description: 'Lavar la Ropa', status: 'completed' }, // task 1
+  { description: 'Comprar comida', status: 'pending' }, // task 2
+  { description: 'Estudiar', status: 'pending' }, // task 3
+  { description: 'Cenar', status: 'pending' }, // task 4
+]
+
 function App() {
+  const [ tasks, setTasks ] = useState(initialTask);
+
+  /*
+    Agregar una nueva tarea a mi lista de tareas.
+    newTask => Contiene la nueva tarea.
+  */
+  const addTask = (newTask) => {
+    const updatedTasks = [...tasks];
+
+    updatedTasks.push({
+      description: newTask,
+      status: 'pending'
+    })
+    //Actualizamos el task con el valor del clon
+    setTasks(updatedTasks)
+  }
+
   return (
     <div className="contenedor-principal">
       <div className="container-fluid">
@@ -14,27 +40,13 @@ function App() {
         <Title title={myTitle} />
 
         {/* F2 - Formulario */}
-        <Form />
+        <Form onAdd={addTask} />
 
         {/* F3 - Lista de Tareas */}
-        <List />
+        <List allTasks={tasks} />
 
         {/* F4 - Filtros */}
-        <div className="row">
-          <div className="col-12 d-flex justify-content-between align-items-center">
-            <div>
-              <button className="btn btn-primary btn-sm me-1">Todas</button>
-              <button className="btn btn-outline-primary btn-sm me-1">Pendientes</button>
-              <button className="btn btn-outline-primary btn-sm">Completadas</button>
-            </div>
-
-            <button className="btn btn-link btn-sm">
-              <span className="material-icons">
-                clear
-              </span>
-            </button>
-          </div>
-        </div>
+        <Filters />
       </div>
     </div>
   );

@@ -1,17 +1,12 @@
-let tasks = [
-  { description: 'Lavar la Ropa', status: 'completed' }, // task 1
-  { description: 'Comprar comida', status: 'pending' }, // task 2
-  { description: 'Estudiar', status: 'pending' }, // task 3
-  { description: 'Cenar', status: 'pending' }, // task 4
-]
 
-function List() {
+
+function List(props) {
   return (
     <div className="row">
       <div className="col-12">
         <table className="table lista-tareas">
           <tbody>
-            {tasks.map( (task) => {
+            {props.allTasks.map( (task) => {
               return (
                 <tr>
                   <td>

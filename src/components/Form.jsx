@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function Form() {
+function Form(props) {
   // State
   const [enable, setEnable] = useState(false);
   const [task, setTask] = useState('');
@@ -23,7 +23,7 @@ function Form() {
   // Handling Form Submit Event
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(task);
+    props.onAdd(task)
   }
 
   return (
