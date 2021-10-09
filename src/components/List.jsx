@@ -6,9 +6,9 @@ function List(props) {
       <div className="col-12">
         <table className="table lista-tareas">
           <tbody>
-            {props.allTasks.map( (task) => {
+            {props.allTasks.map( (task, index) => {
               return (
-                <tr>
+                <tr key={index} >
                   <td>
                     <input type="checkbox" className="form-check-input" />
                   </td>
@@ -17,7 +17,7 @@ function List(props) {
                     <span className="text-muted">{task.status}</span>
                   </td>
                   <td className="text-end">
-                    <button className="btn btn-link" title="Eliminar">
+                    <button className="btn btn-link" title="Eliminar" onClick={ ()=>{ props.onDelete(index)  } } >
                       <span className="material-icons text-danger">
                         delete
                       </span>

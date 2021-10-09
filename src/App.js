@@ -33,6 +33,15 @@ function App() {
     setTasks(updatedTasks)
   }
 
+  const deleteTask = (taskIndex) =>{
+    const updatedTasks = [...tasks];
+
+    updatedTasks.splice(taskIndex, 1)
+
+    //Actualizamos el task con el valor del clon
+    setTasks(updatedTasks)
+  }
+
   return (
     <div className="contenedor-principal">
       <div className="container-fluid">
@@ -43,7 +52,7 @@ function App() {
         <Form onAdd={addTask} />
 
         {/* F3 - Lista de Tareas */}
-        <List allTasks={tasks} />
+        <List allTasks={tasks} onDelete={deleteTask}  />
 
         {/* F4 - Filtros */}
         <Filters />
