@@ -30,6 +30,7 @@ function App() {
       status: 'pending'
     })
     //Actualizamos el task con el valor del clon
+    localStorage.setItem('tasksTintoCode', JSON.stringify(updatedTasks) )
     setTasks(updatedTasks)
   }
 
@@ -39,7 +40,26 @@ function App() {
     updatedTasks.splice(taskIndex, 1)
 
     //Actualizamos el task con el valor del clon
+    localStorage.setItem('tasksTintoCode', JSON.stringify(updatedTasks) )
     setTasks(updatedTasks)
+  }
+
+  const showPendingTask = () => {
+    const allTasks = JSON.parse(localStorage.getItem('tasksTintoCode'))
+    setTasks(allTasks) //Actualizamos las tareas por medio del escuchador.
+
+    const updatedTasks = [...allTasks] //Clonamos el arreglo para trabajar con él.
+    const filterTask = updatedTasks.filter( task => task.status === 'pending' )
+    setTasks(filterTask)
+  }
+
+  const showCompletedTask = () => {
+    const allTasks = JSON.parse(localStorage.getItem('tasksTintoCode'))
+    setTasks(allTasks) //Actualizamos las tareas por medio del escuchador.
+
+    const updatedTasks = [...allTasks] //Clonamos el arreglo para trabajar con él.
+    const filterTask = updatedTasks.filter( task => task.status === 'completed' )
+    setTasks(filterTask)
   }
 
   return (
@@ -55,7 +75,7 @@ function App() {
         <List allTasks={tasks} onDelete={deleteTask}  />
 
         {/* F4 - Filtros */}
-        <Filters />
+        <Filters filterPending={showPendingTask} filterCompleted={showCompletedTask} />
       </div>
     </div>
   );
