@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute";
 import Menu from "./components/Menu";
+import NotFound from "./pages/NotFound";
 
 function TintoRouter () {
   return (
@@ -24,6 +25,7 @@ function TintoRouter () {
         <Route exact path="/log-in">
           <Login />
         </Route>
+        <Route component={NotFound} />
       </Switch>
     </Router>
   );
