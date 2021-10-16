@@ -4,29 +4,20 @@ import App from "./App";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
+import PrivateRoute from "./components/PrivateRoute";
+import Menu from "./components/Menu";
 
 function TintoRouter () {
   return (
     <Router>
-      <ul>
-        <li>
-          <Link to="/">Aplicación</Link>
-        </li>
-        <li>
-          <Link to="/log-in">Inicio de Sesión</Link>
-        </li>
-        <li>
-          <Link to="/about">Sobre Nosotros</Link>
-        </li>
-      </ul>
+      <Menu />
 
       <Switch>
-        <Route exact path="/">
+        <PrivateRoute exact path="/" >
           <App />
-        </Route>
+        </PrivateRoute>
         <Route exact path="/about">
           <About />
         </Route>
