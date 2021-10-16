@@ -80,12 +80,11 @@ function App() {
   }
 
   const setStatus = (taskIndex) => {
-    const updatedTasks = [...tasks]
-    updatedTasks[taskIndex].status = 'completed'
+    const updatedTasks = [...tasks];
+    updatedTasks[taskIndex].status = updatedTasks[taskIndex].status === 'completed' ? 'pending' : 'completed';
     //Actualizamos el task con el valor del clon
-    localStorage.setItem('tasksTintoCode', JSON.stringify(updatedTasks))
-    setTasks(updatedTasks)
-
+    localStorage.setItem('tasksTintoCode', JSON.stringify(updatedTasks));
+    setTasks(updatedTasks);
   }
 
   return (

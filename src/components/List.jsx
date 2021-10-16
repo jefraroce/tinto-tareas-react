@@ -1,5 +1,3 @@
-
-
 function List(props) {
   return (
     <div className="row">
@@ -10,7 +8,7 @@ function List(props) {
               return (
                 <tr key={index} >
                   <td>
-                    <input type="checkbox" className="form-check-input" checked={ task.status === 'completed' ? 'checked' : '' }  onClick={ ()=>{ props.setStatus(index) } } />
+                    <input type="checkbox" className="form-check-input" checked={ task.status === 'completed' } onChange={ () => { props.setStatus(index) } } />
                   </td>
                   <td>
                     <h4 className="text-primary mb-0">{task.description}</h4>
